@@ -1,10 +1,12 @@
-export type uiAction = { type: "uiOpenModal" } | { type: "uiCloseModal" };
-
 export interface uiState {
   modalOpen: boolean;
 };
 
-export interface uiActions {
-  uiOpenModal: () => { type: uiAction; }
-  uiCloseModal: () => { type: uiAction; }
+export enum uiActionType {
+  OPENMODAL = '[ui] Open modal',
+  CLOSEMODAL = '[ui] Close modal'
+}
+
+export interface uiAction {
+  type: uiActionType.OPENMODAL | uiActionType.CLOSEMODAL;
 }

@@ -1,21 +1,23 @@
 import { configureStore } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
-import { calendarReducer } from '../reducers/calendarReducer';
 
-import { uiReducer } from '../reducers/uiReducer';
+import { rootReducer } from '../reducers/rootReducer';
 
 export const store = configureStore({
-  reducer: {
-    ui: uiReducer,
-    calendar: calendarReducer
-  },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    serializableCheck: false
+  }).concat(thunk),
   devTools: process.env.NODE_ENV !== 'production',
 });
 
 export type RootState = ReturnType<typeof store.getState>;
 
 /* OLD WAY */
+
+/* const rootReducer = combineReducers({
+  ui: uiReducer
+}); */
 
 /* import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';

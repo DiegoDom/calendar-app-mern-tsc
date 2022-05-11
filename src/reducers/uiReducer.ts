@@ -1,18 +1,18 @@
-import { uiState, uiAction } from '../interfaces/ui-reducer-interfaces';
+import { uiState, uiAction, uiActionType } from '../interfaces/ui-reducer-interfaces';
 
 const initialState: uiState = {
   modalOpen: false
 };
 
-export const uiReducer = (state = initialState, action: uiAction) => {
+export const uiReducer = (state: uiState = initialState, action: uiAction) => {
 
   switch (action.type) {
-    case 'uiOpenModal':
+    case uiActionType.OPENMODAL:
       return {
         ...state,
         modalOpen: true
       }
-    case 'uiCloseModal':
+    case uiActionType.CLOSEMODAL:
       return {
         ...state,
         modalOpen: false
