@@ -1,4 +1,4 @@
-import { uiActionType } from '../interfaces/ui-reducer-interfaces';
+import { UIActionType } from '../interfaces';
 
-export const uiOpenModal = () => ({ type: uiActionType.OPENMODAL });
-export const uiCloseModal = () => ({ type: uiActionType.CLOSEMODAL });
+export const uiOpenModal = (): UIActionType => ({ type: '[UI] - Open modal' });
+export const uiCloseModal = (): UIActionType => ({ type: '[UI] - Close close' });

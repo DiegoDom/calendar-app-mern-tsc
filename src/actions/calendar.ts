@@ -1,25 +1,25 @@
-import { addEventAction, calendarActionType, clearActiveEventAction, Event, setActiveEventAction, updateEventAction, deleteEventAction } from '../interfaces/calendar-interfaces';
+import { calendarActionType, Event } from '../interfaces';
 
-export const calendarAddNew = (event: Event): addEventAction => ({
-  type: calendarActionType.EVENTADD,
+export const calendarAddNew = (event: Event): calendarActionType => ({
+  type: '[EVENT] Event add',
   payload: event
 });
 
-export const calendarSetActive = (event: Event): setActiveEventAction => ({
-  type: calendarActionType.EVENTSETACTIVE,
+export const calendarSetActive = (event: Event): calendarActionType => ({
+  type: '[EVENT] Event set active',
   payload: event
 });
 
-export const calendarClearActive = (): clearActiveEventAction => ({
-  type: calendarActionType.EVENTCLEARACTIVE
+export const calendarClearActive = (): calendarActionType => ({
+  type: '[EVENT] Event clear active'
 });
 
-export const calendarUpdatedEvent = (event: Event): updateEventAction => ({
-  type: calendarActionType.EVENTUPDATE,
+export const calendarUpdatedEvent = (event: Event): calendarActionType => ({
+  type: '[EVENT] Event update',
   payload: event
 });
 
 
-export const calendarDeleteEvent = (): deleteEventAction => ({
-  type: calendarActionType.EVENTDELETE
+export const calendarDeleteEvent = (): calendarActionType => ({
+  type: '[EVENT] Event delete'
 });

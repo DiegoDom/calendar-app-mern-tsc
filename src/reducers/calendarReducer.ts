@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { calendarAction, calendarActionType, calendarState } from '../interfaces/calendar-interfaces';
+import { calendarActionType, calendarState } from '../interfaces';
 
 const initialState: calendarState = {
   events: [
@@ -18,10 +18,10 @@ const initialState: calendarState = {
   activeEvent: null
 };
 
-export const calendarReducer = (state: calendarState = initialState, action: calendarAction) => {
+export const calendarReducer = (state: calendarState = initialState, action: calendarActionType): calendarState => {
 
   switch (action.type) {
-    case calendarActionType.EVENTADD:
+    case '[EVENT] Event add':
       return {
         ...state,
         events: [
@@ -29,24 +29,24 @@ export const calendarReducer = (state: calendarState = initialState, action: cal
           action.payload
         ]
       }
-    case calendarActionType.EVENTSETACTIVE:
+    case '[EVENT] Event set active':
       return {
         ...state,
         activeEvent: action.payload
       }
-    case calendarActionType.EVENTCLEARACTIVE:
+    case '[EVENT] Event clear active':
       return {
         ...state,
         activeEvent: null
       }
-    case calendarActionType.EVENTUPDATE:
+    case '[EVENT] Event update':
       return {
         ...state,
         events: state.events.map(
           e => (e.id === action.payload.id) ? action.payload : e
         )
       }
-      case calendarActionType.EVENTDELETE:
+      case '[EVENT] Event delete':
         return {
           ...state,
           events: state.events.filter(
