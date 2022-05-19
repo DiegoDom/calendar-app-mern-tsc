@@ -7,10 +7,10 @@ export interface authState {
 }
 
 export type authActionType =
-  | { type: '[AUTH] Auth checking finish' }
-  | { type: '[AUTH] Auth start login' }
-  | { type: '[AUTH] Auth login'; payload: User }
-  | { type: '[AUTH] Auth start register' }
-  | { type: '[AUTH] Auth register' }
-  | { type: '[AUTH] Auth start token renew' }
-  | { type: '[AUTH] Auth logout' };
+  | { type: '[AUTH] checking finish' }
+  | { type: '[AUTH] start login' }
+  | { type: '[AUTH] login'; payload: User }
+  | { type: '[AUTH] start register' }
+  | { type: '[AUTH] register' }
+  | { type: '[AUTH] start token renew' }
+  | { type: '[AUTH] logout' };

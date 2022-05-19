@@ -1,9 +1,7 @@
 import { authActionType, authState } from '../interfaces';
 
 const initialState: authState = {
-  checking: true,
-  /* _id: null,
-  name: null, */
+  checking: true
 };
 
 export const authReducer = (
@@ -11,18 +9,18 @@ export const authReducer = (
   action: authActionType
 ): authState => {
   switch (action.type) {
-    case '[AUTH] Auth login':
+    case '[AUTH] login':
       return {
         ...state,
         ...action.payload,
         checking: false,
       };
-    case '[AUTH] Auth checking finish':
+    case '[AUTH] checking finish':
       return {
         ...state,
         checking: false,
       };
-    case '[AUTH] Auth logout':
+    case '[AUTH] logout':
       return {
         checking: false
       }

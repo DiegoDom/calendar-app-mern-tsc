@@ -1,4 +1,4 @@
 import { UIActionType } from '../interfaces';
 
-export const uiOpenModal = (): UIActionType => ({ type: '[UI] - Open modal' });
-export const uiCloseModal = (): UIActionType => ({ type: '[UI] - Close close' });
+export const uiOpenModal = (): UIActionType => ({ type: '[UI] open modal' });
+export const uiCloseModal = (): UIActionType => ({ type: '[UI] close modal' });

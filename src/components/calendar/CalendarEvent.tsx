@@ -6,11 +6,11 @@ interface Props {
 
 export const CalendarEvent = ({ event }: Props) => {
   
-  const { title, user: { name } } = event;
+  const { title, user } = event;
 
   return (
     <>
-      <strong>{ title }</strong> - <span>{ name }</span>
+      <strong>{ title }</strong> - <span>{ user?.name }</span>
     </>
   )
 }

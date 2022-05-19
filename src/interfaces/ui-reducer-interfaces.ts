@@ -3,5 +3,5 @@ export interface uiState {
 };
 
 export type UIActionType =
-  | { type: '[UI] - Open modal' }
-  | { type: '[UI] - Close close' };
+  | { type: '[UI] open modal' }
+  | { type: '[UI] close modal' };

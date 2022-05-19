@@ -1,10 +1,10 @@
 export interface Event {
-  id: number;
+  id?: number;
   bgcolor?: string;
   end: Date;
   start: Date;
   title: string;
-  user: User;
+  user?: User;
   notes?: string;
 }
 
@@ -26,8 +26,11 @@ export interface calendarState {
 }
 
 export type calendarActionType =
-  | { type: '[EVENT] Event add', payload: Event}
-  | { type: '[EVENT] Event update', payload: Event }
-  | { type: '[EVENT] Event set active', payload: Event }
-  | { type: '[EVENT] Event clear active' }
-  | { type: '[EVENT] Event delete' };
+  | { type: '[EVENT] set active', payload: Event }
+  | { type: '[EVENT] start add new', payload: Event}
+  | { type: '[EVENT] add new', payload: Event}
+  | { type: '[EVENT] update', payload: Event }
+  | { type: '[EVENT] clear active' }
+  | { type: '[EVENT] clear logout' }
+  | { type: '[EVENT] delete' }
+  | { type: '[EVENT] list loaded', payload: Event[]};

@@ -1,7 +1,8 @@
 import { Dispatch } from 'redux';
-import { fetchConToken, fetchSinToken } from '../helpers/fetch';
-import { authActionType, User } from '../interfaces';
+import { fetchConToken, fetchSinToken } from '../helpers';
+import { authActionType, calendarActionType, User } from '../interfaces';
 import Swal from 'sweetalert2';
+import { calendarCleanLogout } from './calendar';
 
 export const startLogin = (email: string, password: string) => {
   return async (disapath: Dispatch<authActionType>) => {
@@ -76,22 +77,22 @@ export const startChecking = () => {
 };
 
 const checkingFinish = (): authActionType => ({
-  type: '[AUTH] Auth checking finish',
+  type: '[AUTH] checking finish',
 });
 
 const login = (user: User): authActionType => ({
-  type: '[AUTH] Auth login',
+  type: '[AUTH] login',
   payload: user,
 });
 
 export const startLogout = () => {
-  return (disapath: Dispatch<authActionType>) => {
+  return (disapath: Dispatch<authActionType | calendarActionType>) => {
     localStorage.clear();
-
+    disapath(calendarCleanLogout())
     disapath(logout());
   };
 };
 
 const logout = (): authActionType => ({
-  type: '[AUTH] Auth logout',
+  type: '[AUTH] logout',
 });
